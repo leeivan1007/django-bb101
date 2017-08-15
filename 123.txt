@@ -1,0 +1,236 @@
+(0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+"GET / HTTP/1.1" 200 7979
+"GET /static/assets/font-awesome.min.css HTTP/1.1" 404 1697
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Users\BIG DATA\Desktop\Django\myvenv\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Users\BIG DATA\Desktop\Django\myvenv\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Users\BIG DATA\Desktop\Django\myvenv\lib\site-packages\django\core\handlers\base.py", line 172, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Users\BIG DATA\Desktop\Django\myvenv\lib\site-packages\django\urls\resolvers.py", line 392, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>], [<RegexURLPattern None ^$>], [<RegexURLPattern None ^front_page/$>], [<RegexURLPattern None ^spartan/$>], [<RegexURLPattern None ^select_page/$>], [<RegexURLPattern None ^result_page/$>]], 'path': 'images/bg.jpg'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BIG DATA\Desktop\Django\myvenv\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BIG DATA\Desktop\Django\myvenv\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BIG DATA\Desktop\Django\myvenv\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BIG DATA\Desktop\Django\myvenv\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in '<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Users\BIG DATA\Desktop\Django\myvenv\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Users\BIG DATA\Desktop\Django\myvenv\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Users\BIG DATA\Desktop\Django\myvenv\lib\site-packages\django\core\handlers\base.py", line 172, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Users\BIG DATA\Desktop\Django\myvenv\lib\site-packages\django\urls\resolvers.py", line 392, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>], [<RegexURLPattern None ^$>], [<RegexURLPattern None ^front_page/$>], [<RegexURLPattern None ^spartan/$>], [<RegexURLPattern None ^select_page/$>], [<RegexURLPattern None ^result_page/$>]], 'path': 'assets/css/images/overlay.png'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BIG DATA\Desktop\Django\myvenv\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BIG DATA\Desktop\Django\myvenv\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BIG DATA\Desktop\Django\myvenv\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BIG DATA\Desktop\Django\myvenv\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in '<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+"GET /static/assets/overlay.png HTTP/1.1" 404 1670
+Not Found: /images/bg.jpg
+Not Found: /assets/css/images/overlay.png
+"GET /assets/css/images/overlay.png HTTP/1.1" 404 2573
+"GET /images/bg.jpg HTTP/1.1" 404 2525
+(0.000) SELECT "rental_detail"."url", "rental_detail"."getTime", "rental_detail"."title", "rental_detail"."address", "rental_detail"."lat_lng", "rental_detail"."floor", "rental_detail"."rent_dollars", "rental_detail"."deposit_dollars", "rental_detail"."minimum_live_month", "rental_detail"."pings", "rental_detail"."use", "rental_detail"."type", "rental_detail"."pattern", "rental_detail"."parking", "rental_detail"."management_fee_dollars", "rental_detail"."MRT", "rental_detail"."bus_station", "rental_detail"."school", "rental_detail"."business_district", "rental_detail"."furniture", "rental_detail"."equipment", "rental_detail"."features_recommended" FROM "rental_detail" WHERE ("rental_detail"."business_district" = '' AND "rental_detail"."school" = '' AND "rental_detail"."MRT" = '') LIMIT 3; args=('', '', '')
+Exception while resolving variable 'MRT' in template 'app/select_page.html'.
+Traceback (most recent call last):
+  File "C:\Users\BIG DATA\Desktop\Django\myvenv\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RentalDetail' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BIG DATA\Desktop\Django\myvenv\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RentalDetail' object has no attribute 'MRT'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BIG DATA\Desktop\Django\myvenv\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'MRT'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BIG DATA\Desktop\Django\myvenv\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [MRT] in '台北市中山區吉林路'
+Exception while resolving variable 'MRT' in template 'app/select_page.html'.
+Traceback (most recent call last):
+  File "C:\Users\BIG DATA\Desktop\Django\myvenv\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RentalDetail' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BIG DATA\Desktop\Django\myvenv\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RentalDetail' object has no attribute 'MRT'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BIG DATA\Desktop\Django\myvenv\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'MRT'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BIG DATA\Desktop\Django\myvenv\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [MRT] in '台北市大安區仁愛路四段'
+Exception while resolving variable 'MRT' in template 'app/select_page.html'.
+Traceback (most recent call last):
+  File "C:\Users\BIG DATA\Desktop\Django\myvenv\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RentalDetail' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BIG DATA\Desktop\Django\myvenv\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RentalDetail' object has no attribute 'MRT'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BIG DATA\Desktop\Django\myvenv\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'MRT'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BIG DATA\Desktop\Django\myvenv\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [MRT] in '台北市文山區樟新街'
+"POST /select_page/ HTTP/1.1" 200 5700
+(0.002) SELECT "rental_detail"."url", "rental_detail"."getTime", "rental_detail"."title", "rental_detail"."address", "rental_detail"."lat_lng", "rental_detail"."floor", "rental_detail"."rent_dollars", "rental_detail"."deposit_dollars", "rental_detail"."minimum_live_month", "rental_detail"."pings", "rental_detail"."use", "rental_detail"."type", "rental_detail"."pattern", "rental_detail"."parking", "rental_detail"."management_fee_dollars", "rental_detail"."MRT", "rental_detail"."bus_station", "rental_detail"."school", "rental_detail"."business_district", "rental_detail"."furniture", "rental_detail"."equipment", "rental_detail"."features_recommended" FROM "rental_detail" WHERE "rental_detail"."url" = 'http://www.etwarm.com.tw/rent-178496'; args=('http://www.etwarm.com.tw/rent-178496',)
+Exception while resolving variable 'abc' in template 'app/result_page.html'.
+Traceback (most recent call last):
+  File "C:\Users\BIG DATA\Desktop\Django\myvenv\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+  File "C:\Users\BIG DATA\Desktop\Django\myvenv\lib\site-packages\django\template\context.py", line 87, in __getitem__
+    raise KeyError(key)
+KeyError: 'abc'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BIG DATA\Desktop\Django\myvenv\lib\site-packages\django\template\base.py", line 888, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'abc'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BIG DATA\Desktop\Django\myvenv\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'abc'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BIG DATA\Desktop\Django\myvenv\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [abc] in "[{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x000000000507A378>>, 'request': <WSGIRequest: POST '/result_page/'>, 'user': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x000000000507A268>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x0000000005083A20>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x0000000005070390>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}}, {}, {'lng': '121.5301592', 'lat': '25.0542592', 'query_object': <RentalDetail: 台北市中山區吉林路>, 'url': 'http://www.etwarm.com.tw/rent-178496', 'posted_data': <QueryDict: {'csrfmiddlewaretoken': ['lrQRzG9VHLMx4Q6YbMoNqdihfcFGzo03J14960iav31xvxgyBEIAUnW2ykbjoLJy'], 'hidden_url': ['http://www.etwarm.com.tw/rent-178496']}>, 'request': <WSGIRequest: POST '/result_page/'>}]"
+Exception while resolving variable 'antct' in template 'app/result_page.html'.
+Traceback (most recent call last):
+  File "C:\Users\BIG DATA\Desktop\Django\myvenv\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+  File "C:\Users\BIG DATA\Desktop\Django\myvenv\lib\site-packages\django\template\context.py", line 87, in __getitem__
+    raise KeyError(key)
+KeyError: 'antct'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BIG DATA\Desktop\Django\myvenv\lib\site-packages\django\template\base.py", line 888, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'antct'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BIG DATA\Desktop\Django\myvenv\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'antct'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BIG DATA\Desktop\Django\myvenv\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [antct] in "[{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x000000000507A378>>, 'request': <WSGIRequest: POST '/result_page/'>, 'user': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x000000000507A268>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x0000000005083A20>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x0000000005070390>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}}, {}, {'lng': '121.5301592', 'lat': '25.0542592', 'query_object': <RentalDetail: 台北市中山區吉林路>, 'url': 'http://www.etwarm.com.tw/rent-178496', 'posted_data': <QueryDict: {'csrfmiddlewaretoken': ['lrQRzG9VHLMx4Q6YbMoNqdihfcFGzo03J14960iav31xvxgyBEIAUnW2ykbjoLJy'], 'hidden_url': ['http://www.etwarm.com.tw/rent-178496']}>, 'request': <WSGIRequest: POST '/result_page/'>}, {}]"
+"POST /result_page/ HTTP/1.1" 200 6584
+"GET /static/css/query_object.css HTTP/1.1" 304 0
+"GET /static/css/query_gray.jpg HTTP/1.1" 304 0
+"GET /static/images/house.png HTTP/1.1" 304 0

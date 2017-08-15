@@ -1,0 +1,465 @@
+/*
+
+	Design by TEMPLATED
+	http://templated.co
+	Released for free under the Creative Commons Attribution License
+
+	Name       : Faux Mocha
+	Version    : 1.0
+	Released   : 20130222
+	
+*/
+
+　
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	color: #07768d;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+
+br.clear {
+	clear: both;
+}
+
+h1,h2,h3,h4 {
+	/*text-transform: lowercase; */
+}
+
+h2,h3,h4 { /*標題文字操控版*/
+	margin-bottom: 1.25em;
+	font-family: Bitter, serif;
+	color: #000000;
+	text-decoration:underline;
+}
+
+
+
+p {
+	margin-bottom: -0.5em;  /*字行的距離*/
+}
+
+ul {
+	/*margin-bottom: 1.75em;*/
+}
+
+.imageList {
+	list-style: none;
+}
+
+.imageList li {
+	clear: both;
+}
+
+#banner {
+	background: #fff;
+}
+
+#box1 {
+	width: 480px;
+	overflow: hidden;
+	margin: 0px 0 30px 0;
+}
+
+#box2 {
+	width: 225px;
+	overflow: hidden;
+	float: left;
+}
+
+#box3 {
+	width: 225px;
+	overflow: hidden;
+	margin: 0px 0 0 255px;
+}
+
+#content {
+	width: 480px;
+	float: right;
+	padding: 35px;
+	background: #fff;
+}
+
+#copyright {
+	padding: 35px 0 65px 0;
+	text-align: center;
+	color: #896F6A;
+}
+
+#copyright a {
+	color: #997F7A;
+}
+
+#header {
+	position: relative;
+	/*padding: 35px;*/
+	width: 161.5%;
+	height: 150px;
+	right:10px;
+	top:-50px;
+	background-color: #000000;
+	/*border-radius: 10px 10px;*/ /*邊角*/
+	/*background:url('../images/back-img/city_2.jpg');*/
+	/*float: inherit;*/
+}
+
+#logo {
+	position: absolute;
+	top: 35px;
+	left: 35px;
+	height: 130px;
+	line-height: 130px;
+}
+
+#logo a {
+	text-decoration: none;
+	/*color: black;*/
+}
+
+#logo h1 {
+
+	font-size: 2em;
+	/*font-family: Bitter, serif;*/
+/*	text-shadow: 0px 2px 1px white;*/
+	/*color:white;*/
+}
+
+#main {
+	position: relative;
+	/*padding: 0px;*/
+	/*width: 1180px;*/
+	/*color: #262626;*/
+}
+
+#main a {
+	/*color: #141414;*/
+}
+
+#main h2, #main h3, #main h4 {
+	/*color: #1a1a1a;*/
+}
+
+#main ul {
+	list-style: none;
+}
+
+#main ul li {
+	padding: 0px -5px ; /*小圖示的高與寬*/
+	margin: 20px; /*li各自的寬長*/
+	border-top:70px;
+	/*border-top: dotted 1px #d6d6d6;*/
+}
+
+/*#main ul li.first {
+	padding-top: 0;
+	border-top: 0;
+}*/
+
+#nav {
+	position: absolute;
+	right: 35px;
+	height: 57px;
+	line-height: 0px;
+	top: 30px;
+}
+
+#nav a {
+	text-decoration: none;
+	text-transform: lowercase;
+	/*color: #f1f0f0;*/
+	/*text-shadow: 0px 2px 1px #36221e;*/
+}
+
+#nav li {
+	margin: 20px  20px; /*小圖示的高度
+	top:5px;
+
+}
+
+#nav ul {
+	list-style: none;
+}
+
+#nav ul li {
+	float: left;
+}
+
+#outer {
+	position: relative;
+	width: 1180px;
+	/*margin: 40px auto 0 auto;*/
+}
+
+#search input.button {
+	margin-left: 1em;
+	border: 0px;
+	/*color: #fff;*/
+	background: #07768d;
+	padding: 6px;
+}
+
+#search input.text {
+	border: dotted 1px #fff;
+	padding: 5px;
+}
+
+
+
+#sidebar1 {
+	width: 215px;
+	float: left;
+	padding-left:  50px;
+	/*background: #5e6f87 ;*/
+	/*color: #c5f3e0;*/
+	/*border: solid 1px #C1B0AC;*/
+	/*text-shadow: 0px 1px 1px #705752;*/
+}
+
+#sidebar1 a {
+	color: #c5f3e0;
+}
+
+#sidebar1 h2, #sidebar1 h3, #sidebar1 h4 {
+/*	color: #dfcdf5;
+	text-shadow: 0px 1px 1px #402722;*/
+}
+
+#sidebar1 ul {
+	/*list-style: none;*/
+}
+
+#sidebar1 ul li {
+/*	padding: 10px 0 10px 0;
+	border-top: dotted 1px #fde8e3;*/
+}
+
+/*#sidebar1 ul li. {
+	padding-top: first0;
+	border-top: 0;
+}*/
+
+/*#sidebar2 {
+	width: 215px;
+	margin: 0px 35px 0 315px;
+	padding: 35px;
+	background: #886963 url('images/bg2.jpg');
+	color: #f3efef;
+	border: solid 1px #967B76;
+	text-shadow: 0px 1px 1px #583933;
+}*/
+
+#sidebar2 a {
+	color: #f5f3f3;
+}
+
+#sidebar2 h2, #sidebar2 h3, #sidebar2 h4 {
+	color: #000000;
+	/*text-shadow: 0px 1px 1px #482923;*/
+}
+
+#sidebar2 ul {
+	list-style: none;
+}
+
+#sidebar2 ul li {
+	padding: 10px 0 10px 0;
+	border-top: dotted 1px #cbb1ac;
+}
+
+/*#sidebar2 ul li.first {
+	padding-top: 0;
+	border-top: 0;
+}*/
+
+#imgBoard{
+	width: 100%;
+	height: 100%;
+	/*margin: viewport width;*/
+	/*margin: 0px auto;*/
+
+	/*padding: 110px;*/
+	background-color: #FFD382;
+	position: absolute;
+	left:-1px;
+	top:-2px;
+	/*left: -135px;*/
+	float: right;
+	z-index: 5;
+
+}
+
+
+#lookfor {
+	display: block;
+	margin: auto;
+	width: 97px;
+	height: 97px;
+	position: relative;
+	top: 30%;
+	left: 10px;
+	right: 0;
+	bottom: 0;
+}
+
+
+
+
+
+
+.overlay-loader {
+	display: block;
+	margin: auto;
+	width: 97px;
+	height: 97px;
+	position: relative;
+	top: 30%;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+.loader {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	width: 97px;
+	height: 97px;
+	animation-name: rotateAnim;
+		-o-animation-name: rotateAnim;
+		-ms-animation-name: rotateAnim;
+		-webkit-animation-name: rotateAnim;
+		-moz-animation-name: rotateAnim;
+	animation-duration: 0.4s;
+		-o-animation-duration: 0.4s;
+		-ms-animation-duration: 0.4s;
+		-webkit-animation-duration: 0.4s;
+		-moz-animation-duration: 0.4s;
+	animation-iteration-count: infinite;
+		-o-animation-iteration-count: infinite;
+		-ms-animation-iteration-count: infinite;
+		-webkit-animation-iteration-count: infinite;
+		-moz-animation-iteration-count: infinite;
+	animation-timing-function: linear;
+		-o-animation-timing-function: linear;
+		-ms-animation-timing-function: linear;
+		-webkit-animation-timing-function: linear;
+		-moz-animation-timing-function: linear;
+}
+.loader div {
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	border: 1px solid rgb(0,0,0);
+	position: absolute;
+	top: 2px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+}
+.loader div:nth-child(odd) {
+	border-top: none;
+	border-left: none;
+}
+.loader div:nth-child(even) {
+	border-bottom: none;
+	border-right: none;
+}
+.loader div:nth-child(2) {
+	border-width: 2px;
+	left: 0px;
+	top: -4px;
+	width: 12px;
+	height: 12px;
+}
+.loader div:nth-child(3) {
+	border-width: 2px;
+	left: -1px;
+	top: 3px;
+	width: 18px;
+	height: 18px;
+}
+.loader div:nth-child(4) {
+	border-width: 3px;
+	left: -1px;
+	top: -4px;
+	width: 23px;
+	height: 23px;
+}
+.loader div:nth-child(5) {
+	border-width: 3px;
+	left: -1px;
+	top: 4px;
+	width: 31px;
+	height: 31px;
+}
+.loader div:nth-child(6) {
+	border-width: 4px;
+	left: 0px;
+	top: -4px;
+	width: 39px;
+	height: 39px;
+}
+.loader div:nth-child(7) {
+	border-width: 4px;
+	left: 0px;
+	top: 6px;
+	width: 49px;
+	height: 49px;
+}
+
+
+@keyframes rotateAnim {
+	from {
+		transform: rotate(360deg);
+	}
+	to {
+		transform: rotate(0deg);
+	}
+}
+
+@-o-keyframes rotateAnim {
+	from {
+		-o-transform: rotate(360deg);
+	}
+	to {
+		-o-transform: rotate(0deg);
+	}
+}
+
+@-ms-keyframes rotateAnim {
+	from {
+		-ms-transform: rotate(360deg);
+	}
+	to {
+		-ms-transform: rotate(0deg);
+	}
+}
+
+@-webkit-keyframes rotateAnim {
+	from {
+		-webkit-transform: rotate(360deg);
+	}
+	to {
+		-webkit-transform: rotate(0deg);
+	}
+}
+
+@-moz-keyframes rotateAnim {
+	from {
+		-moz-transform: rotate(360deg);
+	}
+	to {
+		-moz-transform: rotate(0deg);
+	}
+}

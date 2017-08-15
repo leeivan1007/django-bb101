@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+ 
+<html>
+<head>
+    <title>Page Events</title>
+<script src="../../static/assets/jquery-3.2.1.min.js"></script>
+<script>FontJSON={User:"7262" ,DomainID:"freeCHOBXOVDBRMZS", Font:["DFT_WZ4","DFT_S5","DFT_LN4"]}</script> <!-- 字體js -->
+<script src='https://dfo.dynacw.com.tw/DynaJSFont/DynaFont.js'></script>
+ <style>
+    .ch_1 {     font-family:'DFT_WZ4';    } /*磅礡壯闊文*/
+    .ch_2 {         font-family:'DFT_LN4';      } /*頑皮快樂文*/
+    .ch_3 {         font-family:'DFT_S5';      } /*嬌情藝術文*/
+
+    .big_1 { font-size: 35px }
+    .big_2 { font-size: 30px }
+    .big_3 { font-size: 25px }
+    .big_4 { font-size: 20px }
+    .big_5 { font-size: 15px }
+  </style>
+  
+</head>
+<body style="background-color:#C7FF91">
+
+<img src="../../static/images/error.png" style="position:absolute;left:30%;">
+<DIV class="ch_2 big_1" style="position:absolute;right:40%; top:60%;background-color:#C7FF91;width:400px;height:100px;text-align:center;line-height:0px;">
+　沒有符合您搜尋的物件
+<input type='button' value='返上頁' style='position:relative;top:40%' onclick='back_last_page();'>
+</DIV>	
+
+
+</body>
+<script>
+
+	function back_last_page(){
+		history.back();
+	}
+
+</script>
+</html>

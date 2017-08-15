@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by TEMPLATED
+http://templated.co
+Released for free under the Creative Commons Attribution License
+
+Name       : Heavenly Bliss  
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20130517
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>鳥築-尋夢租屋網</title>
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700|Archivo+Narrow:400,700" rel="stylesheet" type="text/css">
+<link href="../../static/css/select_page-3.css" rel="stylesheet" type="text/css" media="screen" />
+<script src="../../static/assets/jquery-3.2.1.min.js"></script>
+
+<script>FontJSON={User:"7262" ,DomainID:"freeCHOBXOVDBRMZS", Font:["DFT_WZ4","DFT_S5","DFT_LN4"]}</script> <!-- 字體js -->
+<script src='https://dfo.dynacw.com.tw/DynaJSFont/DynaFont.js'></script> 
+ <style>
+    .ch_1 {     font-family:'DFT_WZ4';    } /*磅礡壯闊文*/
+    .ch_2 {         font-family:'DFT_LN4';      } /*頑皮快樂文*/
+    .ch_3 {         font-family:'DFT_S5';      } /*嬌情藝術文*/
+
+    .big_1 { font-size: 35px }
+    .big_2 { font-size: 30px }
+    .big_3 { font-size: 25px }
+    .big_4 { font-size: 20px }
+    .big_5 { font-size: 15px }
+  </style>
+
+
+</head>
+<body>
+
+<div  id="menu-wrapper"> <!-- 上列資訊 -->
+	<div style="font-size: 25px;" class="ch_2" id="menu">
+		<ul>
+			<li class="current_page_item"><a href="#">網站宗旨</a></li>
+			<li><a href="#">臉書粉絲團</a></li>
+			<li><a href="#">聯繫我們</a></li>
+			<li><a href="#">關於我們 {{ number }}</a></li>
+
+		</ul>
+	</div>
+	<!-- end #menu --> 
+</div>
+
+<!-- 過場動畫 -->
+<div id='imgBoard'>
+	<div class="cssload-loader">
+		<div class="cssload-inner cssload-one"></div>
+		<div class="cssload-inner cssload-two"></div>
+		<div class="cssload-inner cssload-three"></div>
+
+	</div>
+	<p style="position: relative;top:9%;right:-3% ;font-size: 25px; width: 230px" id='lookfor'>物件匹配中</p> 
+</div>
+
+
+
+<div id="banner-wrapper">
+	<div id="banner"><a ><img src="../../static/images/select_page.jpg" width="1200" height="300" alt="" /></a></div>
+</div>
+
+<div id="wrapper"> 
+	<!-- end #header -->
+	<div id="page">
+			<div id="page-bgbtm">
+				  <!-- 迴圈展示物件 -->
+					
+				
+				<!-- end #sidebar -->
+
+				<div id="content"> <!-- 主列物建 -->
+
+					<div class="post">
+					{% for info in RO %}
+						<h2 class="title ch_1"><a href="#">{{ info.title }}</a></h2>
+						<p class="meta"><span class="ch_2 date"></span><span class="posted ch_2">
+						<strong> 更新時間：{{ info.updatedate  }}</strong></span></p>
+						<!-- <div style="clear: both;">&nbsp;</div> -->
+						<div class="entry ch_1 big_4">
+							<p>地址：{{ info.address  }}</p>
+							<p>租金：{{ info.rent }}</p>
+							<p>格局：{{ info.pattern  }}</p>
+							<p>格局：{{ info.label  }}</p>
+							<form action="/result_page/" method='post'>
+							{% csrf_token %}
+								<input  type="hidden" name="hidden_url" value="{{ info.url  }}"> <!--  隱藏欄位，為了回傳配合表單，把網址隱藏 , 傳遞給內頁網頁
+								 -->
+								 <p class="links"><input type="submit" class="button" ></p>
+							</form>
+							
+						</div>
+					{% endfor %}
+					</div> <!-- 租屋物建條列 --> <!-- 主列物建 -->
+					<br>
+					<br>
+					<p style="font-size: 18px" class="ch_1" align="center">第 2、3、4、5、6、7、8、9、10 後10頁</p>
+				</div>
+				
+					
+				<!-- end #content -->
+				
+				<div style="margin: 5px;" id="sidebar2"> <!-- 旁列資訊 -->
+
+
+
+					<ul>
+						<li>
+							<h2>BB101-第一組</h2>
+							<p></p>
+							<p></p>
+							
+						</li>
+						<li>
+							
+							<ul> 
+								<li><a href="#"></a></li>
+								<li></li>
+								<li><a href="#">二手車大數據分析！</a></li>
+								<li><a href="#"></a></li>
+								<li><a href="#">網羅全台所有二手車資訊</a></li>
+								<li></li>
+								<li><a href="#">BigData全方位分析</a></li>
+								<li></li>
+								<li><a href="#">精準找出你想要的</a></li>
+								<li></li>
+							</ul>
+						</li>
+						<li>
+							<h2>BB101-第三組</h2>
+							<p></p>
+							<p></p>
+							<ul>
+								<li><a href="#"></a></li>
+								<li></li>
+								<li><a href="#">文具用品-大數據分析</a></li>
+								<li></li>
+								<li><a href="#">百種分析，一次到位</a></li>
+								<li></li>
+								<li><a href="#">資料探勘，挖掘黃金</a></li>
+								<li></li>
+								<li><a href="#">不怕你用，只怕你不用</a></li>
+								<li></li>
+
+							</ul>
+						</li>
+
+					</ul> 
+				</div>
+				<div style="clear: both;">&nbsp;</div>
+			</div>
+		</div>
+	</div>
+	<!-- end #page --> 
+</div>
+<div id="footer">
+	<p>&copy; Untitled. | Photos by <a href="http://fotogrph.com/">Fotogrph</a> | Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
+</div>
+<!-- end #footer -->
+
+<script>
+	
+      $(document).ready(function(){ //過場動化
+      	 $('html, body').scrollTop(0); //自動會到滾輪最上面
+         $('#imgBoard').delay(2000).fadeOut(0);
+         $('#lookfor').fadeOut(1000).fadeIn(1000).fadeOut(1000).fadeIn(500);
+      }); 
+
+</script>
+
+
+</body>
+</html>

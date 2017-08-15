@@ -1,0 +1,365 @@
+<!-- <% load staticfiles %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> -->
+<!--
+
+  Design by TEMPLATED
+  http://templated.co
+  Released for free under the Creative Commons Attribution License
+
+  Name       : Faux Mocha
+  Version    : 1.0
+  Released   : 20130222
+
+-->
+<!DOCTYPE html>
+
+    <head>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOKMUD6m0DCLsqhDM2AZZpVUXV7mAEaTs&callback=initMap"
+    async defer></script> <!-- google map api -->
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Faux Mocha by TEMPLATED</title>
+    <link href="http://fonts.googleapis.com/css?family=Bitter" rel="stylesheet" type="text/css" />
+    <link href="../../static/css/test.css" rel="stylesheet" type="text/css" />
+    <script src="../../static/assets/jquery-3.2.1.min.js"></script>
+    </head>
+
+    <body background="../../static/images/back-img/back-img-8.png"><!-- query_bg.jpg --> <!-- ""  -->
+              
+              <!-- 過場動化 -->
+<!--               <div id="imgBoard"  > 
+                <div class="overlay-loader">
+                  <div class="loader">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                  </div>
+                </div>
+                <p id='lookfor'>物件搜尋中...</p> 
+              </div> -->
+
+
+        <div id="outer">
+            
+            <div id="header"><!-- 標題 -->
+                <div id="logo">
+                    <h1>
+                        <a href="#">{{ query_object.title }}</a>
+                    </h1>
+                </div>
+
+
+                <div id="nav"> <!-- 上方區塊 -->
+
+                    <ul>
+                        <li class="first">
+                            <img src='../../static/images/store32.png' onclick="gomap('超商');change('store24')">
+                            <a href="#">超商</a>
+                        </li>
+                        <li>
+                            <img src='../../static/images/school32.png' onclick="gomap('學校');change('school24')">
+                            <a href="#">學校</a>
+                        </li>
+                        <li>
+                            <img src='../../static/images/restaurant32-2.png' onclick="gomap('餐廳');change('restaurant24-2')">  
+                            <a href="#">餐廳</a>
+                        </li> 
+                        <li class="last">
+                            <img src='../../static/images/hospital32-2.png' onclick="gomap('診所');change('hospital24-2')">
+                            <a href="#">醫院/診所</a> 
+                        </li>
+                        <li class="last">
+                            <input onclick="DeleteMapOnAll();" type=button value="清除標記"  style="width:90px;height:30px;">
+                            
+                        </li>
+                    </ul>
+                    <br class="clear" /> 
+                </div>
+            </div>
+
+
+            <div id="main" >  <!-- 主要區塊 -->
+
+              <div id="sidebar1" style="margin-right:50px;margin-left: 0px"> <!-- 加入購物車 -->
+
+                     <img id="" src='../../static/images/star32-1.png' "><span onclick="gomap('診所')" style="color:black;font-size:22px;">&nbsp;&nbsp;加入購物車</span>
+                    <h3>  詳細資訊  </h3>  
+
+                    <p>
+                        評論
+                    </p>
+                    <ul class="linkedList">  <!-- 左側上方區塊 -->
+                        <li class="first">
+                            <a href="#">地址：{{ query_object.address }}</a>
+                        </li>
+                        <li>
+                            <a href="#">月租：{{ query_object.rent }}</a>
+                        </li>
+                        <li>
+                            <a href="#">坪數：{{ query_object.space }}</a>
+                        </li>
+                        <li class="last">
+                            <a href="#">型態：{{ query_object.pattern }}</a>
+                        </li>
+                    </ul>
+                    <h3>
+                        周遭環境 <!-- 公共空間 -->
+                    </h3>
+                    <ul class="linkedList">  <!-- 左側下方區塊 -->
+                        <li class="first">
+                            <a href="#">抽菸：{{ query_object.smoke }}</a>
+                        </li>    
+                        <li>
+                            <a href="#">寵物：{{ query_object.pet }}</a>
+                        </li>
+                        <li>
+                            <a href="#">廚房：{{ query_object.cook }}</a>
+                        </li>
+                        <li>
+                            <a href="#">公園：{{ query_object.parking }}</a>
+                        </li>
+                        <li class="last">
+                            <a href="#"></a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- 中央地圖  width: 840px; height:640px;-->
+
+                <div id="map" style="width: 840px; height:640px; margin-right:80px;margin-left: 80px" ></div>
+                
+                <br class="clear" />
+                <div id="pano" style="background-color:#82FF82;height: 500px;width: 500px;"></div>
+            </div>
+        </div>
+        <div id="copyright">
+        &copy; BB101第二組 | 居家好環境 
+        </div>
+
+
+
+    <script>  //所有的var物建
+
+      $(document).ready(function(){ //過場動化
+         $('html, body').scrollTop(0);
+         $('#imgBoard').delay(3000).slideUp(500);
+      }); 
+
+
+      var map;   //※※※地圖初始化※※※
+      var infowindow;
+      var type;  //地圖選取公共建設會對照的檔案名稱，用這個參數儲存
+      var markers = [];  // 標記群，存放所有目前在地圖上的標記
+
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center:  {lat:{{ query_object.lat }},lng:{{ query_object.lng }}},
+          // new google.maps.LatLng( {{ lat }} ,  {{ lng }} ), 也可
+          zoom: 15,
+          //mapTypeId: 'roadmap' <!-- 很像無差別 -->
+        });
+        var panorama = new google.maps.StreetViewPanorama(
+              document.getElementById('pano'), {
+                position: {lat:{{ query_object.lat }},lng:{{ query_object.lng }}},
+                pov: {
+                  heading: 34,
+                  pitch: 10
+                }
+              });
+          map.setStreetView(panorama);
+      <!-- 圖檔準備、匯入 從目錄或網路-->
+        var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';  
+        var icons = {
+          info: {
+            icon: iconBase + 'info-i_maps.png' <!-- 匯入的圖片檔案 -->
+          } 
+
+          // library: {
+          //   name: 'Library',
+          //   icon: iconBase + 'library_maps.png'
+          // },
+        };
+     <!-- (小人) 找到的點匯入，座標與型態 -->
+        var features = [  
+          {
+            position: new google.maps.LatLng({{ query_object.lat }}-0.005, {{ query_object.lng }}-0.005),
+            type: 'info'  
+          }, {                                 
+            position: new google.maps.LatLng({{ query_object.lat }}+0.004, {{ query_object.lng }}+0.005),
+            type: 'info'
+          }
+        ];
+     <!--創造圖標-dict裡面的物件 -->
+        features.forEach(function(feature) {
+          var marker = new google.maps.Marker({
+            position: feature.position,
+            icon: icons[feature.type].icon,
+            map: map  });
+        });
+      <!--創造圖標-小房子 -->
+      var marker = new google.maps.Marker({
+        position: map.getCenter(),
+        icon: '../../static/images/house3.png', /*static/house.png*/
+        map: map
+
+       });
+
+        infowindow = new google.maps.InfoWindow();
+          google.maps.event.addListener(marker, 'click', function() { //按鈕 點下上可顯示資訊
+            infowindow.setContent('物件名稱：{{ query_object.title }} <br> 地址：{{  query_object.address}}');
+            infowindow.open(map, marker);
+
+        });
+      var address_area; //尋求地址第四到第六個字 找出行政區名稱
+      var city_number = [];
+      address_area = '{{ query_object.address }}'.substr(0,6);
+    //行政區欄位
+
+      //台北市
+
+         city_number['台北市北投區']='23238409';city_number['台北市士林區']='23238283';city_number['台北市大同區']='23238285';city_number['台北市中山區']='23238354';city_number['台北市松山區']='23238430';city_number['台北市內湖區']='23238371';city_number['台北市萬華區']='23238343';city_number['台北市中正區']='23238356';city_number['台北市大安區']='23238619';city_number['台北市信義區']='23238367';city_number['台北市南港區']='23238270';city_number['台北市文山區']='23238411';
+
+      //新北市
+
+        city_number['新北市萬里區']='23238344';city_number['新北市金山區']='23238542';city_number['新北市板橋區']='23238585';city_number['新北市汐止區']='23238444';city_number['新北市深坑區']='23238593';city_number['新北市石碇區']='23238467';city_number['新北市瑞芳區']='23238460';city_number['新北市平溪區']='23238508';city_number['新北市雙溪區']='23238306';city_number['新北市貢寮區']='23238515';city_number['新北市新店區']='23238570';city_number['新北市坪林區']='23238533';city_number['新北市烏來區']='23238602';city_number['新北市永和區']='23238566';city_number['新北市中和區']='23238350';city_number['新北市土城區']='23238279';city_number['新北市三峽區']='23238597';city_number['新北市樹林區']='23238588';city_number['新北市鶯歌區']='23238311';city_number['新北市三重區']='23238348';city_number['新北市新莊區']='23238630';city_number['新北市泰山區']='23238447';city_number['新北市林口區']='23238431';city_number['新北市蘆洲區']='23238381';city_number['新北市五股區']='23238493';city_number['新北市八里區']='23238373';city_number['新北市淡水區']='23238448';city_number['新北市三芝區']='23238564';city_number['新北市石門區']='23238468';
+ 
+      //基隆市
+
+        city_number['基隆市中山區']='23238379';city_number['基隆市安樂區']='23238518';city_number['基隆市中正區']='23238355';city_number['基隆市信義區']='23238502';city_number['基隆市仁愛區']='23238385';city_number['基隆市七堵區']='23238530';city_number['基隆市暖暖區']='23238526';
+
+      //桃園市
+
+         city_number['桃園區']='23238435';city_number['中壢區']='23238352';city_number['平鎮區']='23238325';city_number['龍潭區']='23238397';city_number['楊梅區']='23238587';city_number['新屋區']='23238416';city_number['觀音區']='23238294';city_number['龜山區']='23238398';city_number['八德區']='23238372';city_number['大溪區']='23238495';city_number['大園區']='23238286';city_number['蘆竹區']='23238345';city_number['復興區']='23238327';
+
+      //新竹市
+
+          city_number['東區']='23238394';city_number['北區']='23238256';city_number['香山區']='23238531';
+
+      //新竹縣
+
+          city_number['竹北市']='23238474';city_number['竹東鎮']='23238605';city_number['新埔鎮']='23238415';city_number['關西鎮']='23238304';city_number['湖口鄉']='23238452';city_number['新豐鄉']='23238581';city_number['峨眉鄉']='23238321';city_number['寶山鄉']='23238574';city_number['北埔鄉']='23238628';city_number['芎林鄉']='23238578';city_number['橫山鄉']='23238440';city_number['尖石鄉']='23238320';city_number['五峰鄉']='23238499';
+
+
+      //畫出行政區
+      if(city_number[address_area]){ 
+
+        map.data.loadGeoJson('https://sheethub.com/ronnywang/100%E5%B9%B4%E5%85%A8%E5%9C%8B%E9%84%89%E9%8E%AE%E5%B8%82%E5%8D%80%E7%95%8C%E5%9C%96/uri/'+city_number[address_area]+'?format=geojson');
+      };
+
+      // <!--圓圈一-->
+      // var cityCircle = new google.maps.Circle({ 
+      // strokeColor: '#blue', //圓形邊邊顏色
+      // strokeOpacity: 0.8, //圓形邊邊淡化程度}
+      // strokeWeight: 2,  //圓邊邊寬度
+      // fillColor: 'blue',  //園內圈顏色
+      // fillOpacity: 0.35,   //圓內圈顏色 淡化程度}
+      // map: map,
+      // center: map.getCenter(),
+      // radius: 600
+      // });
+
+      <!--圓圈二-->
+     var cityCircle = new google.maps.Circle({
+      strokeColor: '#blue', //圓形邊邊顏色
+      strokeOpacity: 0.8, //圓形邊邊淡化程度}
+      strokeWeight: 2,  //圓邊邊寬度
+      fillColor: 'green',  //園內圈顏色
+      fillOpacity: 0.35,   //圓內圈顏色 淡化程度}
+      map: map,
+      center: map.getCenter(),
+      radius: 800
+      });      
+
+
+
+      // Define the LatLng coordinates for the outer path.
+
+      //※※※畫圖多邊型在地圖※※※ , 
+      // var outerCoords = [ <!--創造圖的經緯度-->
+      //   {lat: {{ query_object.lat }}+0.002, lng: {{ query_object.lng }}+0.003}, // north west
+      //   {lat: {{ query_object.lat }}+0.002, lng: {{ query_object.lng }}+0.005}, // south west
+      //   {lat: {{ query_object.lat }}+0.004, lng: {{ query_object.lng }}+0.005}, // south east
+      //   {lat: {{ query_object.lat }}+0.004, lng: {{ query_object.lng }}+0.003}  // north east
+      // ];
+
+      // map.data.add({geometry: new google.maps.Data.Polygon([outerCoords])})<!--輸入進去map-->
+      map.data.setStyle({ <!-- setStyle 設定圖層樣式→ 設定顏色跟寬度 -->
+      fillColor: 'blue',
+      strokeWeight: 1
+    });
+
+      //※※※讓多邊型與使用者互動※※※
+    // map.data.addListener('mouseover', function(event) { <!-- 滑鼠移動上面觸發事件 -->
+    //   map.data.revertStyle();
+    //   map.data.overrideStyle(event.feature, {strokeWeight: 8, fillColor:'red' });
+    // });
+
+    // map.data.addListener('mouseout', function(event) { <!-- 滑鼠離開處發事件，這一定要! -->
+    //   map.data.revertStyle();
+    // });
+
+      }  
+
+
+
+       function change(keyword){ <!--每次查詢，由這個參數告知要呈現的標記類型-->
+        type = keyword
+       }
+       
+      function gomap(key) { //針對個別需求的公共物件作查詢
+
+        infowindow = new google.maps.InfoWindow();
+        var service = new google.maps.places.PlacesService(map);
+        service.nearbySearch({
+          location: {lat:{{ query_object.lat }},lng:{{ query_object.lng }}},
+          radius: 500,
+          keyword:key,
+
+          //type: ['store'] 
+        }, callback);
+
+      }
+
+
+      function callback(results, status) { <!--搜尋的結果群，開始地圖添加標記-->
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+            createMarker(results[i]);
+
+          }
+        }
+      }
+
+      function createMarker(place) { <!--附上資訊、標記圖案-->
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({
+          map: map,
+          position: place.geometry.location,
+          icon : '../../static/images/'+type+'.png'
+
+        });
+
+        google.maps.event.addListener(marker, 'click', function() { //按鈕 點下上可顯示資訊
+          //name 地點名稱
+          infowindow.setContent(place.name); //('hi'+place.types+'<br>'+type.vicinity);
+          infowindow.open(map, this);
+        });
+
+         markers.push(marker);
+      }
+
+      function DeleteMapOnAll() {  <!--去除地圖上所有的標記-->
+        for (var i = 0; i < markers.length; i++) {
+          markers[i].setMap(null);
+        }
+      }
+      
+    </script>
+    </body>
+

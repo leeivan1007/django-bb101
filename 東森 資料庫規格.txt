@@ -1,0 +1,56 @@
+【rental】
+url text unique not null,
+soup text not null,
+nosql text,
+rdb text,
+getTime datetime
+
+
+【rental_detail】
+
+網址:url text unique not null
+更新時間:getTime datetime
+標題：title text
+地址：address text
+經緯度：lat_lng text
+樓層：floor INTEGER
+租金：rent_dollars INTEGER
+押金：deposit_dollars INTEGER
+最短租期：minimum_live_month INTEGER
+坪數：pings REAL
+用途：use text
+型態：type text
+格局：pattern text
+車位：parking text
+管理費：management_fee_dollars INTEGER
+捷運：MRT text
+公車站：bus_station text
+學校：school text
+商圈：business_district text
+家俱：furniture text
+設備：equipment text
+特色推薦：features_recommended text
+
+
+
+http://www.etwarm.com.tw/rent-180639
+2017-06-05
+F41新生北路三段美套
+台北市中山區新生北路路3段
+樓層 : 7樓
+19,000 元 / 月
+38,000 元
+12個月
+12.09 坪
+住辦
+大樓
+開放空間
+無
+910元 / 月
+中和新蘆線中山國小站
+-
+中山國小
+-
+-
+-
+有陽台 採光好 漂亮邊間 不租養寵物 有附家電  租金不含管理費不附網路第四台

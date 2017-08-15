@@ -1,0 +1,27 @@
+﻿body{
+	font: normal 120% Tahoma,Verdana;
+	text-transform: capitalize;
+	background: #ccc;
+}
+form{
+	background: #fff;
+	width: 300px;
+	padding: 15px;
+	margin: 30px;
+	border: 1px solid #bbb;
+}
+#theForm div{
+	margin:8px 0px;
+}
+#submit{
+	text-transform: capitalize;
+}
+
+p{
+	font-size:10px;
+	color:maroon;
+}
+
+textarea{
+	resize:none;
+} /* 把可以拉的寬寬功能取消掉 */

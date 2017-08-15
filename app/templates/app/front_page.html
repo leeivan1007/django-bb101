@@ -1,0 +1,311 @@
+
+<!--
+	Highlights by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>鳥築-尋夢租屋網</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="../../static/assets/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	    <script>FontJSON={User:"7262" ,DomainID:"freeCHOBXOVDBRMZS", Font:["DFT_WZ4","DFT_S5","DFT_LN4"]}</script>
+	    <script src='https://dfo.dynacw.com.tw/DynaJSFont/DynaFont.js'></script>			
+		<style>
+			.ch_1 {			font-family:'DFT_WZ4';		} /*磅礡壯闊文*/
+			.ch_2 {         font-family:'DFT_LN4';      } /*頑皮快樂文*/
+			.ch_3 {         font-family:'DFT_S5';      } /*嬌情藝術文*/
+
+			.big_1 { font-size: 35px }
+			.big_2 { font-size: 30px }
+			.big_3 { font-size: 25px }
+		</style>
+	</head>
+	<body>
+	 <!-- 硬要加上第二個點 才有換照效果 -->
+
+		<!-- Header -->
+			<section id="header">
+				
+
+
+				<p><h1 class='ch_3' style="font-size:500%">鳥築</h1></p>
+				<br>
+				<h4 style="font-size:120%"><!-- <p class='ch_1 big_3' >人人都夢想有個好居處</p> -->
+				<p class='ch_1 big_4' >輸入期望條件</p>
+				<p class='ch_1 big_4' >找尋您心目中的歸屬之地</p>
+<!-- 				<p class='ch_1 big_4'>點選開始按鈕</p>
+				<p class='ch_1 big_4'>開始我們的探索之旅</p> -->
+				</h4>
+				
+				<div class="container">
+					<ul class="actions">
+						<li><a  href="#one" class="button special scrolly">開始</a></li>
+					</ul>
+					<h3 class='ch_3' style="font-size:100%;">【找築尋屋 飛向人生新旅程...】</h3>
+					<p></p>
+					<p></p>
+					<p></p>
+				</div>
+			</section>
+
+		<!-- One -->
+			<section id="one" class="main special">
+				<div class="container">
+					<span class="image fit primary"><img src="../../static/assets/pic01.jpg" alt="" /></span>
+					<div class="content">
+						<header class="major">
+							<h2 class='ch_1' style="font-size: 240%">條件蒐尋</h2>
+						</header>
+						<form action="/select_page/" method='post'>
+						{% csrf_token %} 
+							<select class='ch_2' id='city-select' name="city">
+							  <option value="">縣/市</option>
+							  <option value="1">臺北市</option>
+							　<option value="2">新北市</option>
+							　<option value="3">桃園市</option>
+							　<option value="4">新竹市</option>
+							  <option value="5">新竹縣</option>
+							  <option value="6">基隆市</option>
+							</select>
+							
+							<br>
+							<select class='ch_2' id="area" name="area">
+								<option value="">鎮/區/鄉</option>
+							</select>
+							<br>
+							<select class='ch_2' name="rent">
+							  <option value="">金額</option>
+							　<option value=0,9999>10000以下</option>
+							　<option value=10000,14999>10000~15000</option>
+							　<option value=15000,19999>15000~20000</option>
+							　<option value=20000,1000000>20000以上</option> <!-- 因為針對ORM語法統一 故設置上限值100萬 -->
+							</select>
+							<input type="hidden" id='hidden_area' value="dddd" name="">
+							<br>
+							
+							<!-- <select name="use">
+							  <option value="">型態</option>
+							　<option value="透天">透天</option>
+							　<option value="整層住家">整層住家</option>
+							　<option value="獨立套房">獨立套房</option>
+							　<option value="分租套房">分租套房</option>
+							</select>
+							  <br> -->
+							  <input type="submit" >
+
+
+
+						<p></p>
+						<p class='ch_2'>點選下面的(↓)，結合大數據分析</p>
+						<p class='ch_2'>讓我們更加找尋到您心中期望的！</p>
+
+					</div>
+					<a href="#two" class="goto-next scrolly">Next</a>
+				</div>
+			</section>
+
+		<!-- Two -->
+			<section id="two" class="main special">
+				<div class="container">
+					<span class="image fit primary"><img src="../../static/assets/pic02.jpg" alt="" /></span>
+					<div class="content">
+						<header class="major">
+							<h2 class='ch_1' style="font-size: 240%">環境條件</h2>
+						</header>
+
+						<p class='ch_2'>下列問題1至5分選答題，最高5分，最低1分</p>
+
+							<select class='ch_2' name="food">
+							  <option value="">您喜歡住家附近有餐廳嗎？</option>
+							  <option value="1">1</option>
+							　<option value="2">2</option>
+							　<option value="3">3</option>
+							　<option value="4">4</option>
+							  <option value="5">5</option>on>
+							</select>
+							<br>
+							<select class='ch_2'  name="green">
+							  <option value="">您喜歡住家附近有綠地嗎？</option>
+							  <option value="1">1</option>
+							　<option value="2">2</option>
+							　<option value="3">3</option>
+							　<option value="4">4</option>
+							  <option value="5">5</option>
+							</select>
+							<br>							
+							<select class='ch_2' name="leasure"> <!-- 拼錯字 -->
+							  <option value="">您喜歡住家附近有賣場嗎？</option>
+							  <option value="1">1</option>
+							　<option value="2">2</option>
+							　<option value="3">3</option>
+							　<option value="4">4</option>
+							  <option value="5">5</option>
+							</select>
+							<br>
+							<select class='ch_2' name="hospital">
+							  <option value="">您喜歡住家附近有醫院嗎？</option>
+							  <option value="1">1</option>
+							　<option value="2">2</option>
+							　<option value="3">3</option>
+							　<option value="4">4</option>
+							  <option value="5">5</option>
+							</select>
+							<br>
+							<select class='ch_2' name="mrt">
+							  <option value="">您喜歡住家附近有交通設施嗎？(例:公車站牌、捷運站)</option>
+							  <option value="1">1</option>
+							　<option value="2">2</option>
+							　<option value="3">3</option>
+							　<option value="4">4</option>
+							  <option value="5">5</option>
+							</select>
+							<br>
+				
+							  <input type="submit" >
+
+						</form>
+						
+					</div>
+					<a href="#three" class="goto-next scrolly">Next</a>
+				</div>
+			</section>
+
+			<section id="three" class="main special">
+				<div class="container">
+					<span class="image fit primary"><img src="../../static/assets/pic03.jpg" alt="" /></span>
+					<div class="content">
+						<header class="major">
+							<h2>more thing</h2>
+						</header>
+						<ul class="icons-grid">
+							<li>
+								<span class="icon major fa-camera-retro"></span>
+								<h3>網站宗旨</h3>
+							</li>
+							<li>
+								<span class="icon major fa-pencil"></span>
+								<h3>聯繫我們</h3>
+							</li>
+							<li>
+								<span class="icon major fa-code"></span>
+								<a href='http://localhost:8000/spartan/'><h3>人才招募</h3></a>
+							</li>
+							<li>
+								<span class="icon major fa-coffee"></span>
+								<h3>Facebook粉絲團</h3>
+							</li>
+						</ul>
+						<p class='ch_2'>感謝您的使用！點(↓)按鈕 : )</p>
+						<p class='ch_2'>回饋您寶貴的意見，我們會更加努力不懈</p>
+					</div>
+					<a href="#footer" class="goto-next scrolly">Next</a>
+				</div>
+			</section>
+
+			<section id="footer"> <!-- 意見回饋 -->
+				<div class="container">
+					<header class="major">
+						<h2 class='ch_1' style="font-size: 230%">意見回饋</h2>
+					</header>
+					<form method="post" action="#">
+						<div class="row uniform">
+							<div class="6u 12u$(xsmall)"><input type="text" name="name" id="name" placeholder="名子" /></div>
+							<div class="6u$ 12u$(xsmall)"><input type="email" name="email" id="email" placeholder="信箱" /></div>
+							<div class="12u$"><textarea name="message" id="message" placeholder="回饋意見" rows="4"></textarea></div>
+							<div class="12u$">
+								<ul class="actions">
+									<li><input type="submit" value="發送" class="special" /></li>
+								</ul>
+							</div>
+						</div>
+					</form>
+				</div>
+
+              <div class="ch_1 ch_2 ch_3" style="display:none"> <!-- 隱藏層，保存字體的樣式 -->
+              <p>
+				['北投區','士林區','大同區','中山區','松山區','內湖區','萬華區','中正區','大安區','信義區','南港區','文山區']
+				['萬里區','金山區','板橋區','汐止區','深坑區','石碇區','瑞芳區','平溪區','雙溪區','貢寮區','新店區','坪林區','烏來區','永和區','中和區','土城區','三峽區','樹林區','鶯歌區','三重區','新莊區','泰山區','林口區','蘆洲區','五股區','八里區','淡水區','三芝區','石門區']
+				['中山區','安樂區','中正區','信義區','仁愛區','七堵區','暖暖區']
+				['桃園區','中壢區','平鎮區','龍潭區','楊梅區','新屋區','觀音區','龜山區','八德區','大溪區','大園區','蘆竹區','復興區']
+				['東區','北區','香山區']
+				['竹北市','竹東鎮','新埔鎮','關西鎮','湖口鄉','新豐鄉','峨眉鄉','寶山鄉','北埔鄉','芎林鄉','橫山鄉','尖石鄉','五峰鄉',]
+			  </p>
+              </div>
+
+				<footer>
+					<ul class="copyright">
+						<li>中壢資訊策略發展會</li><li>BB101第二組</li>
+					</ul>
+				</footer>
+			</section>
+
+		<!-- Scripts -->
+
+
+			<script src="../../static/assets/jquery-3.2.1.min.js"></script>
+			<script src="../../static/assets/jquery.min.js"></script>
+			<script src="../../static/assets/jquery.scrollex.min.js"></script>
+			<script src="../../static/assets/jquery.scrolly.min.js"></script>
+			<script src="../../static/assets/skel.min.js"></script>
+			<script src="../../static/assets/util.js"></script>
+			<script src="../../static/assets/main.js"></script>
+
+		<script>
+			var city_list = [];
+				city_list['1'] = ['北投區','士林區','大同區','中山區','松山區','內湖區','萬華區','中正區','大安區','信義區','南港區','文山區']
+				city_list['2'] = ['萬里區','金山區','板橋區','汐止區','深坑區','石碇區','瑞芳區','平溪區','雙溪區','貢寮區','新店區','坪林區','烏來區','永和區','中和區','土城區','三峽區','樹林區','鶯歌區','三重區','新莊區','泰山區','林口區','蘆洲區','五股區','八里區','淡水區','三芝區','石門區']
+				city_list['6'] = ['中山區','安樂區','中正區','信義區','仁愛區','七堵區','暖暖區']
+				city_list['3'] = ['桃園區','中壢區','平鎮區','龍潭區','楊梅區','新屋區','觀音區','龜山區','八德區','大溪區','大園區','蘆竹區','復興區']
+				city_list['4'] = ['東區','北區','香山區']
+				city_list['5'] = ['竹北市','竹東鎮','新埔鎮','關西鎮','湖口鄉','新豐鄉','峨眉鄉','寶山鄉','北埔鄉','芎林鄉','橫山鄉','尖石鄉','五峰鄉',]
+			$(document).ready(function(){
+
+
+			//回碩區 下拉式選項
+				var value_city = $('#city-select').val(); //回上一頁 區域值都還在
+				var value_hidden = $('#hidden_area').val();
+				if (value_city!=''){
+					$('#area').empty(); //刪除，全部重來
+					$('#area').append('<option class="ch_2" value="">鎮/區/鄉</option}')
+					for ( i=0 ; i < city_list[value_city].length ; i+=1){
+						var area = city_list[value_city][i];
+						$('#area').append('<option class="ch_2" value="'+area+'">'+area+'</option}')
+				}}
+
+			//回碩區 該選擇區  ※這裡是要還的債
+				if (value_hidden[1]=='區'){ $('#area').val(value_hidden); }
+				if (value_hidden[2]=='區'){ $('#area').val(value_hidden); }
+				if (value_hidden[2]=='鄉'){ $('#area').val(value_hidden); }
+				if (value_hidden[2]=='鎮'){ $('#area').val(value_hidden); }
+				
+
+			//取出值丟入隱藏層
+				$('#area').change(function(){
+					var value_area = $('#area').val();
+					$('#hidden_area').val(value_area);
+				});
+
+			//城市找區
+				$('#city-select').change(function(){ 
+
+					var value_city = $('#city-select').val(); //取與選擇的值去對照
+					$('#area').empty(); //刪除，全部重來
+					$('#area').append('<option class="ch_2" value="">鎮/區/鄉</option}')
+					for ( i=0 ; i < city_list[value_city].length ; i+=1){
+						var area = city_list[value_city][i];
+						$('#area').append('<option class="ch_2" value="'+area+'">'+area+'</option}')
+				}});
+
+
+				
+			});			
+		</script>
+
+
+	</body>
+</html>

@@ -1,0 +1,279 @@
+<!-- <% load staticfiles %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> -->
+<!--
+
+	Design by TEMPLATED
+	http://templated.co
+	Released for free under the Creative Commons Attribution License
+
+	Name       : Faux Mocha
+	Version    : 1.0
+	Released   : 20130222
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOKMUD6m0DCLsqhDM2AZZpVUXV7mAEaTs&callback=initMap&libraries=places"
+    async defer></script> <!-- google map api -->
+
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>Faux Mocha by TEMPLATED</title>
+        <link href="http://fonts.googleapis.com/css?family=Bitter" rel="stylesheet" type="text/css" />
+        <link href="../../static/css/query_object.css" rel="stylesheet" type="text/css" />
+    </head>
+
+    <body background="query_bg.jpg" >
+        
+
+
+        <div id="outer">
+            
+            <div id="header">
+                <div id="logo">
+                    <h1 >
+                        <a href="#">{{ query_object.title }}</a>
+                        
+                    </h1>
+
+                </div>
+                <div id="nav">
+
+                    <ul>
+                        <li class="first">
+                            <a href="#">物件比較</a>
+                        </li>
+                        <li>
+                            <a href="#">機器人小幫手</a>
+                        </li>
+                        <li>
+                            <a href="#">登入會員</a>
+                        </li>
+                        <li class="last">
+                            <a href="#">聯繫我們</a>
+                        </li>
+                    </ul>
+                    <br class="clear" />
+                </div>
+            </div>
+
+
+            <div id="main" >
+
+                <div id="sidebar1" style="margin-right:50px;margin-left: 0px">
+
+               
+
+                
+
+                    <h3> 詳細資訊 </h3>
+                    <p>
+                        評論內容
+                    </p>
+                    <ul class="linkedList">  
+                        <li class="first">  
+                            <a href="#">地址：{{ query_object.address }}</a>
+                        </li>
+                        <li>
+                            <a href="#">月租：{{ query_object.rent }}</a>
+                        </li>
+                        <li>
+                            <a href="#">坪數：{{ query_object.space }}</a>
+                        </li>
+                        <li class="last">
+                            <a href="#">型態：{{ query_object.pattern }}</a>
+                        </li>
+                    </ul>
+                    <h3>
+                        周遭環境 <!-- 公共空間 -->
+                    </h3>
+                    <ul class="linkedList">  
+                        <li class="first">
+                            <a href="#">抽菸：{{ query_object.smoke }}</a>
+                        </li>    
+                        <li>
+                            <a href="#">寵物：{{ query_object.pet }}</a>
+                        </li>
+                        <li>
+                            <a href="#">廚房：{{ query_object.cook }}</a>
+                        </li>
+                        <li>
+                            <a href="#">商圈：{{ query_object.parking }}</a>
+                        </li>
+                        <li class="last">
+                            <a href="#"></a>
+                        </li>
+                    </ul>
+                </div>
+                
+
+                <div id="map" style="width: 840px; height:640px; margin-right:80px;margin-left: 80px" ></div>
+                <!-- {% for ant in antct %} 套用迴圈
+                <tr>
+                    <td>{{ ant.url }}</td>
+                    <td>{{ ant.nosql }}</td>
+                    <td>{{ ant.rdb }}</td>
+                    <td>{{ ant.gettime }}</td> -->
+                    <!-- <td>{{ ant.soup }}</td> -->
+                <!-- </tr>
+                {% endfor %} -->
+                <br class="clear" />
+            </div>
+        </div>
+        <div id="copyright">
+				&copy; BB101第二組 | 居家好環境 
+        </div>
+
+
+    <script>
+
+
+
+      var map;   //※※※地圖初始化※※※
+      var infowindow;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center:  {lat:{{ query_object.lat }},lng:{{ query_object.lng }}},
+          // new google.maps.LatLng( {{ lat }} ,  {{ lng }} ), 也可
+          zoom: 15,
+          //mapTypeId: 'roadmap' <!-- 很像無差別 -->
+        });
+
+
+        <!-- 圖檔準備、匯入 從目錄或網路-->
+        var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';  
+        var icons = {
+          info: {
+            icon: iconBase + 'info-i_maps.png' <!-- 匯入的圖片檔案 -->
+          } 
+
+          // library: {
+          //   name: 'Library',
+          //   icon: iconBase + 'library_maps.png'
+          // },
+        };
+        
+
+        <!-- (小人) 找到的點匯入，座標與型態 -->
+        var features = [  
+          {
+            position: new google.maps.LatLng({{ query_object.lat }}-0.005, {{ query_object.lng }}-0.005),
+            type: 'info'  
+          }, {                                 
+            position: new google.maps.LatLng({{ query_object.lat }}+0.004, {{ query_object.lng }}+0.005),
+            type: 'info'
+          }
+        ];
+        
+
+         <!--創造圖標-dict裡面的物件 -->
+        features.forEach(function(feature) {
+          var marker = new google.maps.Marker({
+            position: feature.position,
+            icon: icons[feature.type].icon,
+            map: map
+          });
+        });
+
+
+        <!--創造圖標-小房子 -->
+      var marker = new google.maps.Marker({
+        position: map.getCenter(),
+        icon: '../../static/images/hosue2.png', /*static/house.png*/
+        map: map
+      });
+
+
+      <!--圓圈-->
+      var cityCircle = new google.maps.Circle({
+      strokeColor: '#blue', //圓形邊邊顏色
+      strokeOpacity: 0.8, //圓形邊邊淡化程度}
+      strokeWeight: 2,  //圓邊邊寬度
+      fillColor: 'blue',  //園內圈顏色
+      fillOpacity: 0.35,   //圓內圈顏色 淡化程度}
+      map: map,
+      center: map.getCenter(),
+      radius: 300
+      });
+
+      
+
+
+
+      // Define the LatLng coordinates for the outer path.
+
+      //※※※畫圖多邊型在地圖※※※ , 
+      var outerCoords = [ <!--創造圖的經緯度-->
+        {lat: {{ query_object.lat }}+0.002, lng: {{ query_object.lng }}+0.003}, // north west
+        {lat: {{ query_object.lat }}+0.002, lng: {{ query_object.lng }}+0.005}, // south west
+        {lat: {{ query_object.lat }}+0.004, lng: {{ query_object.lng }}+0.005}, // south east
+        {lat: {{ query_object.lat }}+0.004, lng: {{ query_object.lng }}+0.003}  // north east
+      ];
+
+      map.data.add({geometry: new google.maps.Data.Polygon([outerCoords])})<!--輸入進去map-->
+      map.data.setStyle({ <!-- setStyle 設定圖層樣式→ 設定顏色跟寬度 -->
+      fillColor: 'green',
+      strokeWeight: 1
+    });
+
+      //※※※讓多邊型與使用者互動※※※
+    map.data.addListener('mouseover', function(event) { <!-- 滑鼠移動上面觸發事件 -->
+      map.data.revertStyle();
+      map.data.overrideStyle(event.feature, {strokeWeight: 8, fillColor:'red' });
+    });
+
+    map.data.addListener('mouseout', function(event) { <!-- 滑鼠離開處發事件，這一定要! -->
+      map.data.revertStyle();
+
+    });
+
+        infowindow = new google.maps.InfoWindow();
+        var service = new google.maps.places.PlacesService(map);
+        service.nearbySearch({
+          location: {lat:{{ query_object.lat }},lng:{{ query_object.lng }}},
+          radius: 500,
+          keyword:'餐廳'
+          //type: ['store'] 
+        }, callback);
+
+
+
+
+
+      function callback(results, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+            createMarker(results[i]);
+          }
+        }
+      }
+
+
+
+      function createMarker(place) {
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({
+          icon:'../../static/images/store2.png',
+          map: map,
+          position: place.geometry.location
+
+
+        });
+
+        google.maps.event.addListener(marker, 'click', function() { //按鈕 點下上可顯示資訊
+          infowindow.setContent(place.name);
+          infowindow.open(map, this);
+        });
+      }
+
+
+
+
+
+
+      }   
+      
+    </script>
+    </body>
+</html>
