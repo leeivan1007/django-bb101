@@ -1,0 +1,135 @@
+
+
+1.雲端配置
+
+(1).設置ec2的時候把主機塞到30G(免費額度) 1a15c
+
+(2).ec2群組開權限 HTTP TCP 8000 0.0.0.0/0
+
+(3).如果是ubuntu記得修改名稱  name@ip
+
+(4).連線指令:ssh -i bb101-g2-new.pem ec2-user@13.114.1.145
+
+2.安裝python3   #!/bin/bash
+
+(1) sudo yum -y install python35
+
+(2) sudo yum -y install python35-pip
+
+(3) sudo easy_install virtualenv
+
+(4) sudo yum -y install python35-virtualenv
+
+end.已開啟虛擬機python3
+
+3.傳輸東西上去 用git的方式
+
+(1) sudo yum -y install git 安裝git
+
+(2) git clone https://github.com/keeivan1007/mysqltest.git
+
+
+
+
+
+4.創造虛擬環境
+
+(1) virtualenv ~/ec-virt --python=python3.5 [有出現代表正常]
+
+(2) source ~/ec-virt/bin/activate
+
+(3) pip install django
+
+
+
+5.MySQL-python mysqlclient
+
+(1) sudo yum -y update[大更新]
+
+(2) sudo yum install python35-devel 要先安裝這個 才能→pip install mysqlclient
+ 
+(如果已經有python2 就先刪除 yum remove)
+
+(3) sudo yum -y install python-devel mysql-devel
+
+(4) pip install ConfigParser
+
+(5) sudo yum -y install gcc
+
+(6) pip install mysqlclient
+
+
+6.django運行server
+
+(1) cd mysqltest
+
+(2) python manage.py runserver 0.0.0.0:8000 
+
+[有時候]不知道為何python值不見,要用3才能執行]
+
+連線 http://EC2_PUBLIC_IP:8000
+
+
+
+【啟動mysql服務】
+
+安裝 sudo yum -y install mysql mysql-server
+
+啟動 sudo service mysqld start
+
+設置 mysqladmin -u root password 1234
+
+連線 mysql -u root -p
+
+
+
+【linux上操作】
+
+1.python manage.py runserver 0.0.0.0:8000 &
+
+2.ps -ef    查看狀況與PID
+
+3.kill -2 PID號碼    關掉服務如ctrl c
+
+4.ps axjf 查看bash
+
+
+
+【上傳git】
+
+(1)git init [記得舊的init要先刪掉才可以上傳]
+
+(2)git remote add origin https://github.com/keeivan1007/mysqltest.git [創造個新的案，給url]
+
+(3)git remote -v
+
+(4)git add --all
+
+(5)git commit -m 'test'
+
+(6)git push origin master
+
+
+【開啟html server】 
+
+(0) html寫好後 輸入 :w !sudo tee %
+
+(1) 先移動 cd /var/www/html
+
+(2) 啟動 sudo service httpd start
+
+(3) 直接連線 不用+80port http://13.113.210.39/test.html
+
+
+
+【額外操作】
+
+yum remove vlc [刪除]
+
+pip3 install <module-name> [pip3 安裝]
+
+curl -O https://bootstrap.pypa.io/get-pip.py  [zip邊碼修正]
+
+sudo python3.2 get-pip.py
+
+【總結yum跟pip可以只訂版本 python35 or python3】
