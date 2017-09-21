@@ -103,9 +103,9 @@ DATABASES = {
  'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'house', #bb101
-        'USER': 'yen',
-        'PASSWORD': '12345687', #abcd
-        'HOST': 'bb101-mysql.c5q2hgsxq0uk.ap-northeast-1.rds.amazonaws.com', #127.0.0.1
+        'USER': YOUR+USER,
+        'PASSWORD': YOUR_PASSWORD, #abcd
+        'HOST': YOUR_HOST, #127.0.0.1
         'PORT': '3306',},
 }
 #DATABASE_ROUTERS = ['Django.database_router.DatabaseAppsRouter']
